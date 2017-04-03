@@ -1,0 +1,89 @@
+
+header {
+    background-color: #532d5e;
+    /*
+     * got this gradient from www.uigradients.com
+     */
+    background: #C04848; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #C04848 , #480048); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #C04848 , #480048); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+/* main title of web page: Blogzzz*/
+#title-header a{
+    text-decoration: none;
+    user-select:none;
+    cursor: pointer;
+    color: white;
+}
+/* applied to all templates deriving from base.html */
+body {
+    font-family:'Lato', sans-serif;
+    background-color: #fcf9f9;
+}
+/*leave some space at the bottom of every page*/
+#main-content {
+    margin-bottom:250px;
+}
+pre {
+    /* allows text wrapping for pre tagged text */
+    white-space: pre-wrap;
+    font-family:'Lato', sans-serif;
+    font-size:18px;
+}
+
+/* Sign In, Sign Out, My Profile buttons*/
+.btn-header a{
+    margin: 10px;
+    float: right;
+    text-decoration: none!important;
+}
+
+.btn-header span{
+    display: inline-block;
+    /*why does this add smoothness?*/
+    margin-top: 10px;
+    background-color:rgba(0,0,0,0.0);
+    color:white;
+
+    border-color: rgba(255,255,255,0.7);
+    border-radius:10px;
+    border-width: 2px;
+    border-style: solid;
+
+    width:140px;
+    height:50px;
+    font-size:20px;
+    font-weight: 300;
+    /* positions text 40px below the top*/
+    line-height:45px;
+    text-align:center;
+    user-select:none;
+}
+
+/* changes color of span buttons when user hovers over it */
+.btn-header span:hover {
+    background-color:#e0e2e5;
+    color: #532d5e;
+}
+
+/* describes a large text: used in titles */
+.text-super {
+    font-size:48px;
+}
+
+/* describes a thin text: used in pane titles */
+.text-thin {
+    font-weight: 100;
+}
+
+/* draws a vertical line to a container element */
+.verticalLine {
+  border-left: thin solid #d1d1d1;
+}
+
+hr {
+    border:none;
+    height:1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}

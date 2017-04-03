@@ -1,0 +1,13 @@
+{% extends 'app_blog/base.html' %}
+<!-- add additional info to head-->
+{% block head %}
+    {{ block.super }}
+    <link rel='stylesheet' type='text/css' href='static/front.css'>
+{% endblock %}
+
+<!-- use header provided by base -->
+{% block header %}
+    {{ block.super }}
+{% endblock %}
+
+<!-- Add own page content -->

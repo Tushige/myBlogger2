@@ -1,0 +1,107 @@
+/*general background for phone*/
+@media screen and (min-width: 350px) {
+    .container-welcome {
+        background-image: url('/static/images/iphone/background_6s_750x1334.jpg');
+        background-size: 100% 100%;
+    }
+}
+/*1280x800*/
+@media screen and (min-width: 600px) {
+    .container-welcome {
+        height:800px;
+        background-image: url('/static/images/background_1280x800.jpg');
+    }
+}
+/*1920x1080*/
+@media screen and (min-width: 1300px) {
+    .container-welcome {
+        height:1080px;
+        background-image: url('/static/images/background_1920x1080.jpg');
+    }
+}
+/*2560x1440*/
+@media screen and (min-width: 2000px) {
+    .container-welcome {
+        height:1440px;
+        background-image: url('/static/images/background_2560x1440.jpg');
+    }
+}
+/****************************************
+ * big space for 'welcome' and 'new post'
+ ****************************************/
+.container-welcome {
+    background-repeat: no-repeat;
+    background-color:#d4d4d6;
+    color: white;
+    text-align: center;
+    padding-top: 200px;
+    padding-bottom: 350px;
+}
+.btn-header {
+    float:right;
+}
+#text-welcome{
+    font-size: 64px;
+    color:white;
+    font-weight: 300;
+}
+#btn-newpost a{
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+}
+#btn-newpost span {
+    display: block;
+    top: 0px;
+    font-weight: bold;
+    transition: font 1.7s ease;
+    font-size: 20px;
+    background-color:rgba(0,0,0,0.0);
+    border-color: rgba(255,255,255,0.7);
+    border-radius:10px;
+    border-width: 2px;
+    border-style: solid;
+    color:white;
+    width:250px;
+    height:50px;
+
+    /* positions text 40px below the top*/
+    line-height:40px;
+    text-align:center;
+    user-select:none;
+}
+#btn-newpost span:hover {
+    transition: font 0.5s ease;
+    font-size: 22px;
+    background-color:#e0e2e5;
+    color: #532d5e;
+}
+/*******************************************
+ * for blogs submitted by this user
+ *******************************************/
+
+ #title-history-container {
+     text-align: center;
+ }
+ #title-history-container h3 {
+     font-weight: 300;
+     font-size: 52px;
+ }
+ .blog-title {
+     font-weight: bold;
+ }
+ #blogs-container {
+     width:50%;
+     margin: 0 auto;
+ }
+ .content-container {
+     margin:10px;
+ }
+.display-msg {
+    text-align: center;
+    font-weight: 300;
+    font-size: 36px;
+    margin-top: 50px;
+    margin-bottom:250px;
+}

@@ -1,0 +1,63 @@
+<!-- parent template of all page templates -->
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <meta charset='utf-8'>
+            <meta http-equiv='X-UA-Compatible' content='IE-edge'>
+            <meta name='viewport' content='width=device-width, initial-scale=1'>
+            <title>Blogzzz</title>
+            <link href="https://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet">
+            <link rel='stylesheet' href='static/bootstrap/css/bootstrap.css'>
+            <link rel='stylesheet' type='text/css' href='static/base.css'>
+        {% endblock %}
+    </head>
+    <body>
+        <div id="header-container">
+            <header>
+                {% block header %}
+                <div class='container-fluid'>
+                    <div class='row'>
+                        <!-- page title-->
+                        <div class='col-xs-8 col-sm-8 col-md-8' id="title-header">
+                            <h1 class="text-left text-super">
+                                <a href='/'>
+                                    BLOGzzz
+                                </a>
+                            </h1>
+                        </div>
+                        {% if user is none %}
+                            <!-- Sign In button-->
+                            <div class='col-xs-4 col-sm-4 col-md-4 btn-header'>
+                                <a href="/signin">
+                                    <span>Sign in</span>
+                                </a>
+                            </div>
+                        {% else %}
+                            <!-- Sign Out button-->
+                            <div class='col-xs-4 col-sm-4 col-md-2 btn-header'>
+                                <a href="/signout">
+                                    <span>Sign Out</span>
+                                </a>
+                            </div>
+                            <!-- my profile button-->
+                            <div class='col-xs-4 col-sm-4 col-md-2 btn-header'>
+                                <a href="/author/{{user.username}}">
+                                    <span>My Profile</span>
+                                </a>
+                            </div>
+
+                        {% endif %}
+                        </div>
+                    </div> <!-- row-->
+                </div> <!-- container-->
+                {% endblock%}
+            </header>
+        </div>
+        <!-- area for the derived html to post content-->
+        <div id='main-content'>
+            {% block content%}
+            {% endblock %}
+        </div>
+    </body>
+</html>

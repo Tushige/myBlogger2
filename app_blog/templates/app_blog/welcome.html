@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <!-- import parent's content-->
+    {{ super() }}
+    <title>Submit new post</title>
+    <link rel='stylesheet' type='text/css' href='static/welcome.css'>
+{% endblock %}
+
+<!-- use header provided by base -->
+{% block header %}
+<div class='container-fluid'>
+    <div class='row'>
+        <!-- page title-->
+        <div class='col-xs-6 col-sm-6 col-md-8' id="title-header">
+            <h1 class="text-left text-super">
+                <a href='/'>
+                    BLOGzzz
+                </a>
+            </h1>
+        </div>
+            <!-- Sign Out button-->
+            <div class='col-xs-6 col-sm-3 col-md-2 btn-header'>
+                <a href="/signout">
+                    <span>Sign Out</span>
+                </a>
+            </div>
+            <!-- my profile button-->
+            <div class='col-xs-6 col-sm-3 col-md-2 btn-header'>
+                <a href="/author/{{user.username}}/profile">
+                    <span>Edit Profile</span>
+                </a>
+            </div>
+        </div>
+    </div> <!-- row-->
+</div> <!-- container-->
+{% endblock %}
+
+{% block content %}
+    <!-- first pane: welcome user-->
+    <div class="container-fluid">
+        <div class="row container-welcome">
+            <h1 id='text-welcome'>Welcome {{user.profile_name}}</h1>
+            <div id='btn-newpost'>
+                <!-- newpost link button -->
+                <a href="/{{user.username}}/newpost">
+                    <span>write new post</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- second pane: user submission history-->
+    <div id="title-history-container">
+        <!-- title of the second pane-->
+        <h3>
+            Your Submission History
+        </h3>
+    </div>
+    <hr style="width:70%;">
+
+    <!-- container of rows of submitted blog posts -->
+    <div id="blogs-container">
+        {% if blogs %}
+            {% for blog in blogs %}
+                <div class="row">
+                    <div>
+                        <h3 class='blog-title'>
+                            {{blog.subject}}
+                        </h3>
+                        <h4>created at {{blog.created}}</h4>
+                        <!-- abstract text of the blog post-->
+                        <div class='content-container'>
+                            <pre>{{blog.content}}</pre>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+
+        <!--message shown if user has no blogs submitted-->
+        <div class='display-msg'>
+            <h3>
+                Nothing....
+            </h3>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
