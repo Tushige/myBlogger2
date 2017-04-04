@@ -1,15 +1,16 @@
-{% extends 'base.html' %}
+{% extends 'app_blog/base.html' %}
 
 {% block head %}
     <!-- import parent's content-->
-    {{ super() }}
+    {{ block.super }}
     <title>Submit new post</title>
-    <link rel='stylesheet' type='text/css' href='static/profile.css'>
+    {% load static %}
+    <link rel='stylesheet' type='text/css' href="{% static 'profile.css' %}">
 {% endblock %}
 
 <!-- use header provided by base -->
 {% block header %}
-    {{ super() }}
+    {{ block.super }}
 {% endblock %}
 
 {% block content %}
