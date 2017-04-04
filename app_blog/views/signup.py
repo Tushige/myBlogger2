@@ -12,8 +12,8 @@ class SignupHandler(BaseView):
         userForm = SignupForm(request.POST.copy())
         if userForm.is_valid():
             # store user data
-            self.saveUser(userForm)
-            return HttpResponseRedirect('/author/newUser.username')
+            newUser = self.saveUser(userForm)
+            return self.redirect('/author/%(username)s'% {'username': newUser.username})
         else:
             return self.render_template(request, 'signup.html', {'form':userForm})
 
@@ -24,3 +24,4 @@ class SignupHandler(BaseView):
         email = userForm.cleaned_data['email']
         newUser = User.objects.create_user(username, email, password)
         newUser.save()
+        return newUser
