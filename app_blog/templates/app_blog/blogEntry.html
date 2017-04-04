@@ -1,13 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'app_blog/base.html' %}
 <!-- add additional info to head-->
 {% block head %}
-    {{ super() }}
-    <link rel='stylesheet' type='text/css' href='static/permalink.css'>
+    {{ block.super }}
+    {% load static %}
+    <link rel='stylesheet' type='text/css' href="{% static 'blogEntry.css' %}">
 {% endblock %}
 
 <!-- use header provided by base -->
 {% block header %}
-    {{ super() }}
+    {{ block.super }}
 {% endblock %}
 
 <!-- Fill the actual page content -->
@@ -15,24 +16,24 @@
     {% if blog %}
     <div id="container-blog">
         <h1 id='blog-title'>
-            {{blog.subject}}
+            {{blog.blog_title}}
         </h1>
         <hr>
 
         <!-- submitter info on the blog post entry-->
         <div class="profile-area">
-            <img src="static/images/saitama.jpg" class="img-profile">
+            <img src="{% static 'images/saitama.jpg' %}" class="img-profile">
             <div>
                 <h4 class="username-profile">
-                    <a href="/author/{{blog.username}}">{{blog.profile_name}}</a>
+                    <a href="/author/{{blog.username}}">{{blog.submitter.profile_name}}</a>
                 </h4>
-                <h4 class="date-profile">{{blog.created}}</h4>
+                <h4 class="date-profile">{{blog.pub_date}}</h4>
             </div>
         </div>
 
         <!-- Blog content -->
         <div class='container-content'>
-            <pre>{{blog.content}}</pre>
+            <pre>{{blog.blog_content}}</pre>
         </div>
     </div>
     {% endif %}

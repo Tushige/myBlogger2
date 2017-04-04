@@ -24,5 +24,5 @@ class BaseView(View):
         return HttpResponseRedirect(rurl)
 
     # renders a 404 error page
-    def render_404(self, error_msg):
+    def render_404(self, error_msg=""):
         raise Http404(error_msg)

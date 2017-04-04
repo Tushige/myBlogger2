@@ -3,9 +3,9 @@
 {% block head %}
     <!-- import parent's content-->
     {{ block.super }}
-    <title>Submit new post</title>
+    <title>Welcome</title>
     {% load static %}
-    <link rel='stylesheet' type='text/css' href="{% static 'welcome.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'profile.css' %}">
 {% endblock %}
 
 <!-- use header provided by base -->
@@ -22,7 +22,7 @@
         </div>
             <!-- Sign Out button-->
             <div class='col-xs-6 col-sm-3 col-md-2 btn-header'>
-                <a href="/signout">
+                <a href="{% url 'app_blog:signout' %}">
                     <span>Sign Out</span>
                 </a>
             </div>
@@ -44,7 +44,7 @@
             <h1 id='text-welcome'>Welcome {{user.profile.profile_name}}</h1>
             <div id='btn-newpost'>
                 <!-- newpost link button -->
-                <a href="/{{user.username}}/newpost">
+                <a href="{% url 'app_blog:newpost' %}">
                     <span>write new post</span>
                 </a>
             </div>

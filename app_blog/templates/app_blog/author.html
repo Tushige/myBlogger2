@@ -18,7 +18,7 @@
         <div id='profile'>
             <!-- avatar, name, occupation-->
             <div id='profile-pane1'>
-                <img src="static/images/saitama.jpg" id="profile-img">
+                <img src="{% static 'images/saitama.jpg' %}" id="profile-img">
                 <div id="profile-details">
                     <h2 id="profile-username">{{author.profile.profile_name}}</h2>
                     {% if author.profile.occupation and author.profile.employment%}

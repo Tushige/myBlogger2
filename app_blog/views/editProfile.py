@@ -1,3 +1,6 @@
+'''
+This file contains the class that handles edit profile view page
+'''
 from baseView import BaseView
 from app_blog.forms.profileForm import ProfileForm
 

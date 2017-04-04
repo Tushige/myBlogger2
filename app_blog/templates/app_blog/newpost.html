@@ -22,15 +22,15 @@
 
     <!-- submission form -->
     <form method='post'>
+        {% csrf_token %}
         <h2>Subject:</h2>
-        <input id='subject' type='text' name='subject' value='{{subject}}'>
+        {{form.blog_title}}
         <br>
+        <h2>Abstract:</h2>
+        {{form.blog_abstract}}
         <h2>Content:</h2>
-        <textarea name='content'>{{content}}</textarea> <br>
+        {{form.blog_content}}
         <input id='btn-submit' type='submit'>
     </form>
-    <div class='error'>
-        {{error}}
-    </div>
 </div>
 {% endblock %}
