@@ -5,4 +5,7 @@ from baseView import BaseView
 
 class HomepageHandler(BaseView):
     def get(self, request):
-        return self.render_template(request, 'homepage.html', {'user': self.request.user.is_authenticated()})
+        print '***************'
+        print self.request.user.username
+        print '***************'
+        return self.render_template(request, 'homepage.html', {'user': self.request.user})

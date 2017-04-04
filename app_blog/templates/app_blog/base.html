@@ -27,14 +27,7 @@
                                 </a>
                             </h1>
                         </div>
-                        {% if user is False %}
-                            <!-- Sign In button-->
-                            <div class='col-xs-4 col-sm-4 col-md-4 btn-header'>
-                                <a href="/signin">
-                                    <span>Sign in</span>
-                                </a>
-                            </div>
-                        {% else %}
+                        {% if user.is_authenticated %}
                             <!-- Sign Out button-->
                             <div class='col-xs-4 col-sm-4 col-md-2 btn-header'>
                                 <a href="/signout">
@@ -47,7 +40,13 @@
                                     <span>My Profile</span>
                                 </a>
                             </div>
-
+                        {% else %}
+                            <!-- Sign In button-->
+                            <div class='col-xs-4 col-sm-4 col-md-4 btn-header'>
+                                <a href="/signin">
+                                    <span>Sign in</span>
+                                </a>
+                            </div>
                         {% endif %}
                         </div>
                     </div> <!-- row-->
