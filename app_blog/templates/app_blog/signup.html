@@ -1,15 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'app_blog/base.html' %}
 <!-- add additional info to head-->
 {% block head %}
     <!-- import parent's content-->
-    {{ super() }}
+    {{ block.super }}
 
     <title>Sign Up</title>
     <link rel='stylesheet' type='text/css' href='static/signin.css'>
 {% endblock %}
 <!-- use custom header for sign-in and sign-up pages -->
 {% block header %}
-    {% include 'registration_header.html' %}
+    {% include 'app_blog/registration_header.html' %}
 {% endblock %}
 
 <!-- Add own page content -->
@@ -21,38 +21,44 @@
         </div>
         <!-- Sign Up form-->
         <form method='post'>
-
+            {% csrf_token %}
             <!--username input-->
             <h3 class='form-title'>
                 username
             </h3>
-            <input type='text' name='username' value='{{username}}'><br>
+            {{ form.username }}
+            <br>
             <!--ERROR message for username input-->
             <label>
-                {{usernameError}}
+                {{ form.username.errors }}
             </label>
             <!--password input-->
             <h3 class='form-title'> password </h3>
-            <input type='password' name='password' value='{{password}}'><br>
+            {{ form.password }}
+            <br>
             <!--ERROR message for password input-->
             <label>
-                {{passError}}
+                {{ form.password.errors }}
             </label>
             <!--verify password input-->
             <h3 class='form-title'>
                 verify password
             </h3>
-            <input type='password' name='vpassword' value='{{vpassword}}'><br>
+            {{ form.verify_password }}
+            <br>
             <!--ERROR message for verify password input-->
             <label>
-                {{vpassError}}
+                {{ form.verify_password.errors }}
             </label>
             <!--email input-->
             <h3 class='form-title'>
                 e-mail:
             </h3>
-            <input type='e-mail' name='email' value='{{email}}'>
-
+            {{form.email}}
+            <br>
+            <label>
+                {{ form.email.errors }}
+            </label>
             <br>
             <br>
             <input type='submit' class='btn'>

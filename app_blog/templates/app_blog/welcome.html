@@ -1,8 +1,8 @@
-{% extends 'base.html' %}
+{% extends 'app_blog/base.html' %}
 
 {% block head %}
     <!-- import parent's content-->
-    {{ super() }}
+    {{ block.super }}
     <title>Submit new post</title>
     <link rel='stylesheet' type='text/css' href='static/welcome.css'>
 {% endblock %}
@@ -40,7 +40,7 @@
     <!-- first pane: welcome user-->
     <div class="container-fluid">
         <div class="row container-welcome">
-            <h1 id='text-welcome'>Welcome {{user.profile_name}}</h1>
+            <h1 id='text-welcome'>Welcome</h1>
             <div id='btn-newpost'>
                 <!-- newpost link button -->
                 <a href="/{{user.username}}/newpost">
@@ -58,27 +58,6 @@
         </h3>
     </div>
     <hr style="width:70%;">
-
-    <!-- container of rows of submitted blog posts -->
-    <div id="blogs-container">
-        {% if blogs %}
-            {% for blog in blogs %}
-                <div class="row">
-                    <div>
-                        <h3 class='blog-title'>
-                            {{blog.subject}}
-                        </h3>
-                        <h4>created at {{blog.created}}</h4>
-                        <!-- abstract text of the blog post-->
-                        <div class='content-container'>
-                            <pre>{{blog.content}}</pre>
-                        </div>
-                        <hr>
-                    </div>
-                </div>
-            {% endfor %}
-        {% else %}
-
         <!--message shown if user has no blogs submitted-->
         <div class='display-msg'>
             <h3>
@@ -86,5 +65,4 @@
             </h3>
         </div>
     </div>
-    {% endif %}
 {% endblock %}

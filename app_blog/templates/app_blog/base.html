@@ -26,7 +26,7 @@
                                 </a>
                             </h1>
                         </div>
-                        {% if user is none %}
+                        {% if user is False %}
                             <!-- Sign In button-->
                             <div class='col-xs-4 col-sm-4 col-md-4 btn-header'>
                                 <a href="/signin">
@@ -34,6 +34,7 @@
                                 </a>
                             </div>
                         {% else %}
+                            <h1>{{user}}</h1>
                             <!-- Sign Out button-->
                             <div class='col-xs-4 col-sm-4 col-md-2 btn-header'>
                                 <a href="/signout">

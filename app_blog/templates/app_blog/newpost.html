@@ -1,14 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'app_blog/base.html' %}
 <!-- add additional info to head-->
 {% block head %}
-    {{ super() }}
+    {{ block.super }}
     <title>New Blog Submission</title>
     <link rel="stylesheet" type="text/css" href="static/newpost.css">
 {% endblock %}
 
 <!-- use header provided by base -->
 {% block header %}
-    {{ super() }}
+    {{ block.super }}
 {% endblock %}
 
 <!-- Fill the actual page content -->

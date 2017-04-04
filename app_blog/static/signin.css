@@ -46,6 +46,7 @@ body {
 /* texts such as 'username', 'password'*/
 .form-title {
     color:white;
+    font-size: 48px;
 }
 /* the text, 'need to create a new account'*/
 .form-comment {
