@@ -6,8 +6,8 @@ from django import forms
 
 class SignupForm(forms.Form):
     username = forms.CharField(label='', max_length=32)
-    password = forms.CharField(max_length=32)
-    verify_password = forms.CharField(max_length=32)
+    password = forms.CharField(widget=forms.PasswordInput(), max_length=32)
+    verify_password = forms.CharField(widget=forms.PasswordInput(), max_length=32)
     email = forms.EmailField(max_length=32)
 
     # add custom form validation
@@ -21,4 +21,4 @@ class SignupForm(forms.Form):
             self.add_error('username', "username is taken!")
         if password and verify_password:
             if password != verify_password:
-                self.add_error('verify_password', "password doesn't match!")
+                self.add_error('verify_password', "passwords don't match!")

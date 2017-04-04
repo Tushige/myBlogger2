@@ -1,5 +1,4 @@
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
 from baseView import BaseView
 from app_blog.forms.signupForm import SignupForm
 
