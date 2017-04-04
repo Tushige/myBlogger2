@@ -16,7 +16,7 @@ class SigninHandler(BaseView):
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
-                return self.redirect('/')
+                return self.redirect('/author/%(username)s' % {'username': user.username})
             else:
                 return self.render_template(request, 'signin.html',
                                             {'form':userForm,

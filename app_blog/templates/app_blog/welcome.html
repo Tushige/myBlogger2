@@ -4,7 +4,8 @@
     <!-- import parent's content-->
     {{ block.super }}
     <title>Submit new post</title>
-    <link rel='stylesheet' type='text/css' href='static/welcome.css'>
+    {% load static %}
+    <link rel='stylesheet' type='text/css' href="{% static 'welcome.css' %}">
 {% endblock %}
 
 <!-- use header provided by base -->
