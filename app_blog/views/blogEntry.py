@@ -1,3 +1,6 @@
+'''
+View Controller class for the blog permalink page
+'''
 from baseView import BaseView
 from app_blog.models import Blog
 

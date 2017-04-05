@@ -1,5 +1,5 @@
 '''
-Controller for the signin page
+View Controller class for the signin page
 '''
 from django.contrib.auth import authenticate, login
 from app_blog.forms.signinForm import SigninForm
@@ -10,7 +10,7 @@ class SigninHandler(BaseView):
         # redirect to homepage if user already logged in
         if request.user.is_authenticated():
             return self.redirect('/')
-        # show signin page if no logged in user
+        # show signin page if no logged in user found
         return self.render_template(request, 'signin.html', {'form': SigninForm()})
 
     def post(self, request):
@@ -23,11 +23,11 @@ class SigninHandler(BaseView):
             password = userForm.cleaned_data['password']
             # authenticate user credentials
             user = authenticate(username=username, password=password)
-            # login user if authentication is successful
+            # log user in if authentication is successful
             if user:
                 login(request, user)
                 return self.redirect('/author/%(username)s' % {'username': user.username})
-            # show error message
+            # show error messages on authentication failure
             else:
                 return self.render_template(request, 'signin.html',
                                             {'form':userForm,

@@ -15,11 +15,13 @@ class BaseView(View):
     # @template_name: name of the template file
     # @temp_context: template variable-value mapping
     def render_template(self, request, template_name, temp_context):
-        template = loader.get_template('app_blog/%(template_name)s'%{'template_name':template_name})
+        template = loader.get_template('app_blog/%(template_name)s'%{
+                                       'template_name':template_name
+                                       })
         return HttpResponse(template.render(temp_context, request))
 
     # redirect to the specified url
-    # @rurl: the url to redirect
+    # @rurl: the url to redirect to
     def redirect(self, rurl):
         return HttpResponseRedirect(rurl)
 
