@@ -7,6 +7,10 @@ from baseView import BaseView
 
 class SigninHandler(BaseView):
     def get(self, request):
+        # redirect to homepage if user already logged in
+        if request.user.is_authenticated():
+            return self.redirect('/')
+        # show signin page if no logged in user
         return self.render_template(request, 'signin.html', {'form': SigninForm()})
 
     def post(self, request):

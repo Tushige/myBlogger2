@@ -37,6 +37,10 @@ textarea {
     color:#8c8c8c;
 }
 
+#id_blog_abstract {
+    width: 400px;
+    height: 100px;
+}
 #btn-submit {
     margin-top:50px;
     width:100px;

@@ -23,11 +23,15 @@
     <!-- submission form -->
     <form method='post'>
         {% csrf_token %}
+        <!-- blog title input -->
         <h2>Subject:</h2>
         {{form.blog_title}}
         <br>
+        <!-- blog abstract input -->
         <h2>Abstract:</h2>
         {{form.blog_abstract}}
+
+        <!-- blog content input -->
         <h2>Content:</h2>
         {{form.blog_content}}
         <input id='btn-submit' type='submit'>

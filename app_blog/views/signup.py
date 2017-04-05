@@ -5,6 +5,10 @@ from app_blog.forms.signupForm import SignupForm
 
 class SignupHandler(BaseView):
     def get(self, request):
+        # redirect to homepage if user already logged in
+        if request.user.is_authenticated():
+            return self.redirect('/')
+        # show signup page
         return self.render_template(request, 'signup.html', {'form':SignupForm()})
 
     def post(self, request):

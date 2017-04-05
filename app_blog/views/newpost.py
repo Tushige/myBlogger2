@@ -1,11 +1,19 @@
+'''
+Controller for newpost page
+'''
 from baseView import BaseView
 from app_blog.forms.newpostForm import NewpostForm
 from django.utils import timezone
 
 class NewpostHandler(BaseView):
     def get(self, request):
-        userForm = NewpostForm()
-        return self.render_template(request, 'newpost.html', {'form':userForm})
+        # post submission only allowed for logged in user
+        if request.user.is_authenticated():
+            userForm = NewpostForm()
+            return self.render_template(request, 'newpost.html', {'form':userForm})
+        # if not logged in, redirect to homepage
+        else:
+            return self.redirect('/')
 
     def post(self, request):
         userForm = NewpostForm(request.POST.copy())
@@ -25,4 +33,3 @@ class NewpostHandler(BaseView):
                                      blog_content=content,
                                      pub_date=timezone.now())
         return blog_entry
-        # do I need to save user?
