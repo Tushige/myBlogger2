@@ -12,3 +12,56 @@
 {% endblock %}
 
 <!-- Add own page content -->
+{% block content %}
+    {% if blogs %}
+        <div class="container-fluid container-main">
+            <div class="row">
+                <!-- leave some space for ad-->
+                <div class="col-xs-8 col-md-8 container-blogs">
+                    {% for blog in blogs %}
+                        <div class='row'>
+                            <div class='col-md-10'>
+
+                                <!-- title of the blog post -->
+                                <h3 class='blog-title'>
+                                    <a href="{% url 'app_blog:blog_entry' blog.id %}">
+                                        {{blog.blog_title}}
+                                    </a>
+                                </h3>
+
+                                <!-- submitter info on the blog post entry-->
+                                <div class="profile-area">
+                                    <img src="{% static 'images/saitama.jpg' %}" class="img-profile">
+                                    <div>
+                                        <h4 class="username-profile">
+                                            <a href="{% url 'app_blog:profile' blog.submitter.user.username %}">
+                                                {{blog.submitter.profile_name}}
+                                            </a>
+                                        </h4>
+                                        <h4 class="date-profile">{{blog.pub_date}}</h4>
+                                    </div>
+                                </div>
+
+                                <!-- abstract text of the blog post-->
+                                <div class='container-content'>
+                                    <pre>{{blog.blog_content}}</pre>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- the line separating blog posts -->
+                        <hr>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    <!--Display message when there are no blog posts-->
+    {% else %}
+        <div class="display-msg">
+            <h3 class="text-super">
+                Be the first blogger!
+            </h3>
+        </div>
+    {% endif %}
+{% endblock %}

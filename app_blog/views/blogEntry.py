@@ -6,7 +6,7 @@ class BlogEntryHandler(BaseView):
         # retrieve blog and show if exists
         try:
             blog = Blog.objects.get(id=blog_id)
-        except DoesNotExist:
-            return self.render_404("Nothing here")
+        except Blog.DoesNotExist:
+            return self.render_404(request)
         # blog exists => show it
         return self.render_template(request, 'blogEntry.html', {'blog':blog})

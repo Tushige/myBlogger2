@@ -9,8 +9,10 @@ from .views.signout import SignoutHandler
 from .views.profile import ProfileHandler
 from .views.editProfile import EditProfileHandler
 
+# namespace for our blog app
 app_name = 'app_blog'
 
+# map urls to their view handlers
 urlpatterns = [
     url(r'^$', HomepageHandler.as_view(), name='homepage'),
     url(r'^newpost$',NewpostHandler.as_view(), name='newpost'),

@@ -24,5 +24,5 @@ class BaseView(View):
         return HttpResponseRedirect(rurl)
 
     # renders a 404 error page
-    def render_404(self, error_msg=""):
-        raise Http404(error_msg)
+    def render_404(self, request, error_msg="The page you're looking for doesn't exist!"):
+        return self.render_template(request, 'error404.html', {'error_msg':error_msg})

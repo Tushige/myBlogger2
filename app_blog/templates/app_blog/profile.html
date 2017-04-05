@@ -59,11 +59,32 @@
         </h3>
     </div>
     <hr style="width:70%;">
+    <!-- container of rows of submitted blog posts -->
+    <div id="blogs-container">
+        {% if blogs %}
+            {% for blog in blogs %}
+                <div class="row">
+                    <div>
+                        <h3 class='blog-title'>
+                            {{blog.blog_title}}
+                        </h3>
+                        <h4>created at {{blog.pub_date}}</h4>
+                        <!-- abstract text of the blog post-->
+                        <div class='content-container'>
+                            <pre>{{blog.blog_content}}</pre>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+
         <!--message shown if user has no blogs submitted-->
         <div class='display-msg'>
             <h3>
                 Nothing....
             </h3>
         </div>
+        {% endif %}
     </div>
 {% endblock %}
