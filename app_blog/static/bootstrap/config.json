@@ -382,12 +382,23 @@
     "@hr-border": "@gray-lighter"
   },
   "css": [
+    "type.less",
     "grid.less",
-    "forms.less",
-    "buttons.less",
-    "navs.less",
-    "navbar.less"
+    "modals.less"
   ],
-  "js": [],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=b6ac45c7a5e98f8a139b1c8c7e536b5c"
+  "js": [
+    "alert.js",
+    "button.js",
+    "carousel.js",
+    "dropdown.js",
+    "modal.js",
+    "tooltip.js",
+    "popover.js",
+    "tab.js",
+    "affix.js",
+    "collapse.js",
+    "scrollspy.js",
+    "transition.js"
+  ],
+  "customizerUrl": "http://getbootstrap.com/customize/?id=14ebd124378e6587e6b5dba3090b78da"
 }

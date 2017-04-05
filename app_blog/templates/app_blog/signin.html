@@ -1,8 +1,9 @@
 {% extends 'app_blog/base.html' %}
-<!-- add additional info to head-->
+
 {% block head %}
     <!-- import parent's content-->
     {{ block.super }}
+    <!-- add additional info to head-->
     <title>Sign In</title>
     <link rel='stylesheet' type='text/css' href='static/signin.css'>
 {% endblock %}
@@ -16,10 +17,12 @@
 {% block content %}
     <!-- Sign In box-->
     <div class="container-panel">
+
         <!-- title : 'Sign In'-->
         <div class="title-container">
             <h1>Sign In</h1>
         </div>
+
         <!-- Sign In form -->
         <form method='post'>
             {% csrf_token %}
@@ -28,12 +31,14 @@
             </h3>
             {{ form.username }}
             <label class="error-msg">
-                {{ form.username.errors}}
+                {{ form.username.errors.as_text }}
             </label>
+
             <h3 class="form-title">
                 password
             </h3>
             {{ form.password }}
+            <br>
             <label class="error-msg">
                 {{ form.password.errors }}
                 {{ signin_error }}
@@ -42,13 +47,15 @@
             <br>
             <input type='submit' class="btn" value='Sign In'>
         </form>
+
         <!-- Sign Up button-->
         <div id="signup-container">
             <h4 class="form-comment">
                 Don't have an account?
             </h4>
+            
             <div id='btn-signup-container'>
-                <a href="/signup">
+                <a href="{% url 'app_blog:signup' %}">
                     <span>Sign Up</span>
                 </a>
             </div>
