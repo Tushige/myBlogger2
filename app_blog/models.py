@@ -22,9 +22,9 @@ class Profile(models.Model):
     # Create relationship with 'User' model
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     biography = models.TextField(max_length=200)
-    profile_name = models.CharField(max_length=64)
-    occupation = models.CharField(max_length=64)
-    employment = models.CharField(max_length=64)
+    profile_name = models.CharField(max_length=48)
+    occupation = models.CharField(max_length=48)
+    employment = models.CharField(max_length=48)
 
     # Profile will be created/updated in accordance with the User it's related to
     @receiver(post_save, sender=User)

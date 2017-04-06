@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate
 from django import forms
 
 class ProfileForm(forms.Form):
-    name = forms.CharField(label='', max_length=32, required=False)
-    occupation = forms.CharField(label='', max_length=32, required=False)
-    employment = forms.CharField(label='', max_length=32, required=False)
+    name = forms.CharField(label='', max_length=48, required=False)
+    occupation = forms.CharField(label='', max_length=48, required=False)
+    employment = forms.CharField(label='', max_length=48, required=False)
     biography = forms.CharField(widget=forms.Textarea, required=False)
