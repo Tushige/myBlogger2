@@ -78,7 +78,11 @@ celerybeat-schedule
 # dotenv
 .env
 
+# dotini
+.ini
+
 # virtualenv
+env/
 venv/
 ENV/
 
@@ -89,3 +93,5 @@ ENV/
 .ropeproject
 
 notes
+
+staticfiles
